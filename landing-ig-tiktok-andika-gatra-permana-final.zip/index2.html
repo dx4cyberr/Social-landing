@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Landing | Andika Gatra Permana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0f;
+      --card:#14141c;
+      --accent:#00ffd5;
+      --accent2:#ff0055;
+      --text:#f5f5f5;
+      --muted:#a1a1aa;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center}
+
+    .container{
+      max-width:420px;
+      width:100%;
+      padding:2rem;
+      text-align:center;
+    }
+
+    .card{
+      background:linear-gradient(180deg,#14141c,#0b0b0f);
+      border-radius:24px;
+      padding:2.5rem 2rem;
+      box-shadow:0 0 40px rgba(0,255,213,.25);
+      animation:fadeUp 1s ease;
+    }
+
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(30px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    .avatar{
+      width:120px;
+      height:120px;
+      margin:0 auto 1.2rem;
+      border-radius:50%;
+      position:relative;
+      background:radial-gradient(circle at center,rgba(255,0,85,.9),rgba(255,0,85,.4),transparent 70%);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 0 25px rgba(255,0,85,.8),0 0 60px rgba(255,0,85,.6);
+      animation: dogMove 10s ease-in-out infinite, neonPulse 2.5s infinite alternate;
+    }
+
+    .avatar::before{
+      content:"";
+      position:absolute;
+      inset:-6px;
+      border-radius:50%;
+      background:conic-gradient(from 0deg, transparent, #ff0033, #ff6600, #ff0033, transparent);
+      filter:blur(6px);
+      animation:spin 2.5s linear infinite;
+      z-index:-1;
+    }
+
+    .avatar:hover{animation:shake .15s infinite}
+
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    @keyframes shake{
+      0%{transform:translateX(0)}
+      25%{transform:translateX(-2px)}
+      50%{transform:translateX(2px)}
+      75%{transform:translateX(-2px)}
+      100%{transform:translateX(0)}
+    }
+
+    @keyframes dogMove{
+      0%{transform:translateY(0) scale(1) rotate(0deg)}
+      15%{transform:translateY(-6px) scale(1.03) rotate(-2deg)}
+      30%{transform:translateY(4px) scale(1.02) rotate(2deg)}
+      45%{transform:translateX(-6px) scale(1.04)}
+      60%{transform:translateX(6px) scale(1.04)}
+      75%{transform:translateY(-4px) scale(1.02)}
+      100%{transform:translateY(0) scale(1) rotate(0deg)}
+    }
+
+    @keyframes neonPulse{
+      from{box-shadow:0 0 20px rgba(255,0,85,.6),0 0 40px rgba(255,0,85,.4)}
+      to{box-shadow:0 0 35px rgba(255,0,85,1),0 0 80px rgba(255,0,85,.9)}
+    }
+
+    .avatar img{
+      width:90px;height:90px;border-radius:50%;object-fit:cover;
+      position:relative;
+    }
+
+    .avatar img::after{
+      content:"";
+      position:absolute;
+      top:38%;left:30%;
+      width:10px;height:6px;
+      background:#ff0033;
+      border-radius:50%;
+      box-shadow:30px 0 0 #ff0033;
+      filter:blur(4px);
+      opacity:.9;
+    }
+
+    @media (prefers-color-scheme: dark){
+      .avatar{box-shadow:0 0 40px rgba(255,0,0,1),0 0 90px rgba(255,50,50,.9)}
+    }
+
+    h1{font-size:1.6rem;font-weight:700}
+    h1 span{color:var(--accent)}
+    p{color:var(--muted);font-size:.95rem;margin:.7rem 0 1.8rem}
+
+    .links{
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+    }
+
+    .link{
+      padding:0.9rem;
+      border-radius:14px;
+      background:var(--card);
+      text-decoration:none;
+      color:var(--text);
+      font-weight:600;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:.6rem;
+      transition:.35s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .link::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg,transparent,var(--accent),transparent);
+      transform:translateX(-100%);
+      transition:.5s;
+    }
+
+    .link:hover::before{transform:translateX(100%)}
+    .link:hover{transform:scale(1.04);box-shadow:0 0 25px rgba(0,255,213,.4)}
+
+    .instagram{border:1px solid var(--accent2)}
+    .tiktok{border:1px solid var(--accent)}
+
+    footer{
+      margin-top:1.5rem;
+      font-size:.8rem;
+      color:var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+    <div class="avatar">
+      <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a" alt="Black fierce dog">
+    </div>
+    <h1>Andika <span>Gatra Permana</span></h1>
+    <p>Creative Designer & Web Developer<br>UI/UX • Branding • Website</p>
+
+    <div class="links">
+      <a href="instagram://user?username=dxzzz.24" onclick="setTimeout(()=>window.location.href='https://instagram.com/dxzzz.24',500)" class="link instagram"><i class="fa-brands fa-instagram"></i> Instagram • @dxzzz.24</a>
+      <a href="snssdk1233://user/profile/_d2k24" onclick="setTimeout(()=>window.location.href='https://www.tiktok.com/@_d2k24',500)" class="link tiktok"><i class="fa-brands fa-tiktok"></i> TikTok • @_d2k24</a>
+      <a href="index.html" class="link"><i class="fa-solid fa-globe"></i> Portfolio Website</a>
+      <a href="https://wa.me/628000000000" class="link"><i class="fa-brands fa-whatsapp"></i> WhatsApp / Contact</a>
+    </div>
+
+    <footer>
+      © 2025 Andika Gatra Permana
+    </footer>
+  </div>
+</div>
+
+</body>
+</html>
